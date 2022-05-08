@@ -103,6 +103,22 @@ int main(int argc, char** argv)
 		{
 			i = i + 1;
 		}
+		else if(match("--version", argv[i]))
+		{
+			fputs("org-tree version 0.0.0\n", stdout);
+			exit(EXIT_SUCCESS);
+		}
+		else if(match("--help", argv[i]) || match("-h", argv[i]))
+		{
+			fputs("this version of org-tree supports the following options:\n", stdout);
+			fputs("--path $folder (can be used multiple times)\n", stdout);
+			fputs("--output $file (default is /dev/stdout)\n", stdout);
+			fputs("--ignore-case (default is a case sensitive sort)\n", stdout);
+			fputs("--reverse-order (instead of a->z do z->a)\n", stdout);
+			fputs("--version (see the version information about this program)\n", stdout);
+			fputs("--help [-h] (see this help message)\n", stdout);
+			exit(EXIT_SUCCESS);
+		}
 		else
 		{
 			fputs("UNKNOWN ARGUMENT\n", stderr);
